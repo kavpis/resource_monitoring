@@ -1,0 +1,345 @@
+/* ========================================
+   ДАШБОРД — Специфические стили
+   ======================================== */
+
+/* Обёртка приложения */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Сайдбар */
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transition: transform 0.3s;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.sidebar-logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.sidebar-logo small {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar-link i {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-submenu {
+    list-style: none;
+    padding-left: var(--spacing-lg);
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.sidebar-submenu.show {
+    display: block;
+}
+
+.sidebar-submenu a {
+    display: block;
+    padding: 10px var(--spacing-lg);
+    padding-left: calc(var(--spacing-lg) + 24px);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.sidebar-submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding-left: calc(var(--spacing-lg) + 32px);
+}
+
+/* Контент */
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    padding: var(--spacing-lg);
+    transition: margin-left 0.3s;
+}
+
+/* Хедер */
+.header {
+    background-color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Статистика (виджеты) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card.water { border-left: 4px solid var(--water); }
+.stat-card.heat { border-left: 4px solid var(--heat); }
+.stat-card.electricity { border-left: 4px solid var(--electricity); }
+.stat-card.alerts { border-left: 4px solid var(--danger); }
+
+.stat-icon {
+    font-size: 36px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-icon.water { color: var(--water); }
+.stat-icon.heat { color: var(--heat); }
+.stat-icon.electricity { color: var(--electricity); }
+.stat-icon.alerts { color: var(--danger); }
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-trend {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-trend.positive {
+    color: var(--success);
+}
+
+.stat-trend.negative {
+    color: var(--danger);
+}
+
+/* Графики */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+/* Активные аварии */
+.active-alerts {
+    background-color: #fff5f5;
+    border-left: 4px solid var(--danger);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.alert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.alert-item:last-child {
+    border-bottom: none;
+}
+
+.alert-severity {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.alert-severity.critical { background-color: #c53030; }
+.alert-severity.emergency { background-color: #dd6b20; }
+.alert-severity.warning { background-color: #d69e2e; }
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-content h6 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.alert-content p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.alert-time {
+    font-size: 12px;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+/* Таблица сенсоров на дашборде */
+.sensors-table {
+    font-size: 13px;
+}
+
+.sensors-table td {
+    padding: 8px 12px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-online { background-color: #c6f6d5; color: #276749; }
+.status-offline { background-color: #fed7d7; color: #742a2a; }
+.status-error { background-color: #feebc8; color: #92400e; }
+.status-maintenance { background-color: #bee3f8; color: #2c5282; }
+
+/* Мобильное меню */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Медиа-запросы для мобильных */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
