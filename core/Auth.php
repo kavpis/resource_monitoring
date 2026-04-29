@@ -17,10 +17,12 @@ class Auth {
         }
         
         $this->db = getDB();
-        if (session_status() === PHP_SESSION_NONE) {
+        if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
             session_start();
         }
-        $this->checkSession();
+        if (session_status() !== PHP_SESSION_NONE) {
+            $this->checkSession();
+        }
     }
     
     // Проверка активной сессии

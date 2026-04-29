@@ -22,6 +22,12 @@ $pageTitle = $pageTitle ?? 'Система мониторинга ресурсо
     
     <!-- Chart.js -->
     <script src="/resource_monitoring/public/lib/Chart.bundle.min.js"></script>
+    <script>
+        // Проверка загрузки Chart.js
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js не загружен! Проверьте путь к файлу.');
+        }
+    </script>
 </head>
 <body>
     <div class="app-wrapper">
