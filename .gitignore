@@ -1,49 +1,42 @@
 ```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.class
-*.exe
-*.dll
-*.so
-*.a
-*.out
-
-# Dependencies
-vendor/
-node_modules/
-composer.lock
-
 # Logs and temp files
 *.log
 *.tmp
 *.swp
-*.swo
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Editors
+# Dependencies
+vendor/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Cache directories
+.cache/
+.cargo/
+.npm/
+.yarn/
+
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS specific
+# OS files
 .DS_Store
 Thumbs.db
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Build directories
-build/
-dist/
-target/
+# PHP specific
+*.php~
+*.php.bak
+.php_cs.cache
+.scrutinizer.yml
 ```
