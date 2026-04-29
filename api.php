@@ -925,6 +925,30 @@ try {
             break;
             
         // =================================================================
+        // ВИЗУАЛИЗАЦИЯ
+        // =================================================================
+        case 'visualization':
+            requireAuth($auth);
+            
+            $visAction = $_GET['visualization_action'] ?? $action;
+            
+            require_once __DIR__ . '/modules/visualizations/VisualizationController.php';
+            $visController = new VisualizationController();
+            
+            $params = [
+                'resource' => $_GET['resource'] ?? null,
+                'zone_id' => $_GET['zone_id'] ?? null,
+                'start_date' => $_GET['start_date'] ?? date('Y-m-d', strtotime('-30 days')),
+                'end_date' => $_GET['end_date'] ?? date('Y-m-d'),
+                'grouping' => $_GET['grouping'] ?? 'day',
+                'period' => $_GET['period'] ?? 'day'
+            ];
+            
+            $result = $visController->handleRequest($visAction, $params);
+            sendResponse($result, $result['success'] ? 200 : 400);
+            break;
+            
+        // =================================================================
         // АНАЛИТИКА
         // =================================================================
         case 'analytics':
