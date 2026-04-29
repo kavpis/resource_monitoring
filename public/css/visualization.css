@@ -1,0 +1,466 @@
+/**
+ * Стили для модуля визуализации данных
+ * Раздел 6.4 — Модуль визуализации
+ */
+
+/* ========================================================================
+   КОНТЕЙНЕРЫ ГРАФИКОВ
+   ======================================================================== */
+
+.visualization-container {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.chart-wrapper {
+    position: relative;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ========================================================================
+   ЭЛЕМЕНТЫ УПРАВЛЕНИЯ
+   ======================================================================== */
+
+.chart-filter {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.chart-filter:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.chart-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chart-btn-primary {
+    background: #007bff;
+    color: #ffffff;
+}
+
+.chart-btn-primary:hover {
+    background: #0056b3;
+}
+
+.chart-btn-secondary {
+    background: #6c757d;
+    color: #ffffff;
+}
+
+.chart-btn-secondary:hover {
+    background: #545b62;
+}
+
+.chart-btn-success {
+    background: #28a745;
+    color: #ffffff;
+}
+
+.chart-btn-success:hover {
+    background: #1e7e34;
+}
+
+.chart-btn-icon {
+    padding: 8px;
+    background: transparent;
+    border: 1px solid #dee2e6;
+}
+
+.chart-btn-icon:hover {
+    background: #e9ecef;
+}
+
+/* ========================================================================
+   СЕТКА ДАШБОРДА
+   ======================================================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.dashboard-grid.full-width {
+    grid-template-columns: 1fr;
+}
+
+.dashboard-grid.compact {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ========================================================================
+   КАРТОЧКИ СТАТИСТИКИ
+   ======================================================================== */
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card-water {
+    border-left: 4px solid #36a2eb;
+}
+
+.stat-card-heat {
+    border-left: 4px solid #ff6384;
+}
+
+.stat-card-electricity {
+    border-left: 4px solid #ffce56;
+}
+
+.stat-card-alert {
+    border-left: 4px solid #dc3545;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-change {
+    font-size: 12px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-change.positive {
+    color: #28a745;
+}
+
+.stat-change.negative {
+    color: #dc3545;
+}
+
+/* ========================================================================
+   ИНДИКАТОРЫ СОСТОЯНИЯ
+   ======================================================================== */
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-active {
+    background: #28a745;
+    box-shadow: 0 0 8px #28a745;
+}
+
+.status-warning {
+    background: #ffc107;
+    box-shadow: 0 0 8px #ffc107;
+}
+
+.status-error {
+    background: #dc3545;
+    box-shadow: 0 0 8px #dc3545;
+}
+
+.status-offline {
+    background: #6c757d;
+}
+
+/* ========================================================================
+   АНИМАЦИИ ЗАГРУЗКИ
+   ======================================================================== */
+
+.chart-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e9ecef;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================================================
+   СООБЩЕНИЯ ОБ ОШИБКАХ
+   ======================================================================== */
+
+.chart-error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #f5c6cb;
+}
+
+.chart-error-message::before {
+    content: '⚠️';
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ========================================================================
+   ЛЕГЕНДА ГРАФИКА
+   ======================================================================== */
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+/* ========================================================================
+   КАРТА ОБЪЕКТА
+   ======================================================================== */
+
+.map-container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-zone {
+    position: absolute;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-zone:hover {
+    border-color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.map-zone.active {
+    border-color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.map-zone.warning {
+    border-color: #ffc107;
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.map-zone.error {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.map-zone-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.map-zone-sensors {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* ========================================================================
+   REAL-TIME ОБНОВЛЕНИЯ
+   ======================================================================== */
+
+.realtime-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.realtime-dot {
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ========================================================================
+   АДАПТИВНОСТЬ
+   ======================================================================== */
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .chart-controls {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .chart-filter,
+    .chart-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+}
+
+/* ========================================================================
+   ПЕЧАТНАЯ ВЕРСИЯ
+   ======================================================================== */
+
+@media print {
+    .chart-controls,
+    .chart-btn {
+        display: none !important;
+    }
+    
+    .chart-wrapper {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+    
+    .dashboard-grid {
+        display: block;
+    }
+}
