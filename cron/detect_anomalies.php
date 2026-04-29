@@ -4,8 +4,8 @@
  * Скрипт автоматического анализа аномалий
  * Размещается в планировщике задач (cron)
  * 
- * Пример настройки в crontab:
- * */5 * * * * /usr/bin/php /path/to/resource_monitoring/cron/detect_anomalies.php >> /var/log/anomaly_detection.log 2>&1
+ * Пример настройки в crontab (запуск каждые 5 минут):
+ * 0/5 * * * * /usr/bin/php /path/to/resource_monitoring/cron/detect_anomalies.php >> /var/log/anomaly_detection.log 2>&1
  */
 
 define('CLI_MODE', true);

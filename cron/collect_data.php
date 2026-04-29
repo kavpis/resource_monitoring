@@ -2,7 +2,8 @@
 <?php
 /**
  * Скрипт автоматического сбора данных
- * Должен запускаться по расписанию: */30 * * * * /usr/bin/php /path/to/collect_data.php
+ * Должен запускаться по расписанию (пример для crontab):
+ * 0,30 * * * * /usr/bin/php /path/to/collect_data.php
  */
 
 define('CLI_MODE', true);
