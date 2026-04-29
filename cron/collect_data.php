@@ -7,9 +7,13 @@
  */
 
 define('CLI_MODE', true);
-define('ROOT_PATH', dirname(__DIR__));
 
-require_once ROOT_PATH . '/config/constants.php';
+// Определяем корневую директорию и константы только если они еще не определены
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__));
+    require_once ROOT_PATH . '/config/constants.php';
+}
+
 require_once ROOT_PATH . '/modules/data_collection/DataCollector.php';
 
 if (php_sapi_name() !== 'cli') {

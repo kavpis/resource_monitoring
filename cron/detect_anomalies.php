@@ -9,10 +9,14 @@
  */
 
 define('CLI_MODE', true);
-define('ROOT_PATH', dirname(__DIR__));
 
-require_once ROOT_PATH . '/config/constants.php';
-require_once ROOT_PATH . '/config/database.php';
+// Определяем корневую директорию и константы только если они еще не определены
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__));
+    require_once ROOT_PATH . '/config/constants.php';
+    require_once ROOT_PATH . '/config/database.php';
+}
+
 require_once ROOT_PATH . '/modules/anomaly_detection/DetectionEngine.php';
 require_once ROOT_PATH . '/modules/anomaly_detection/WaterLeakDetector.php';
 require_once ROOT_PATH . '/modules/anomaly_detection/HeatAnomalyDetector.php';
