@@ -11,10 +11,15 @@ class Auth {
     private $user = null;
     
     public function __construct() {
+        // Для CLI режима сессии не нужны
+        if (defined('CLI_MODE') && CLI_MODE === true) {
+            return;
+        }
+        
         $this->db = getDB();
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $this->checkSession();
     }
     
