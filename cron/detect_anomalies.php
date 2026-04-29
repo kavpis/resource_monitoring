@@ -8,15 +8,15 @@
  * 0/5 * * * * /usr/bin/php /path/to/resource_monitoring/cron/detect_anomalies.php >> /var/log/anomaly_detection.log 2>&1
  */
 
+// Определяем CLI режим и корневую директорию ПЕРЕД любыми подключениями
 define('CLI_MODE', true);
-
-// Определяем корневую директорию и константы только если они еще не определены
 if (!defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__));
-    require_once ROOT_PATH . '/config/constants.php';
-    require_once ROOT_PATH . '/config/database.php';
 }
 
+// Подключаем только необходимые файлы без сессий
+require_once ROOT_PATH . '/config/constants.php';
+require_once ROOT_PATH . '/config/database.php';
 require_once ROOT_PATH . '/modules/anomaly_detection/DetectionEngine.php';
 require_once ROOT_PATH . '/modules/anomaly_detection/WaterLeakDetector.php';
 require_once ROOT_PATH . '/modules/anomaly_detection/HeatAnomalyDetector.php';

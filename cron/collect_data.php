@@ -6,14 +6,15 @@
  * 0,30 * * * * /usr/bin/php /path/to/collect_data.php
  */
 
+// Определяем CLI режим и корневую директорию ПЕРЕД любыми подключениями
 define('CLI_MODE', true);
-
-// Определяем корневую директорию и константы только если они еще не определены
 if (!defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__));
-    require_once ROOT_PATH . '/config/constants.php';
 }
 
+// Подключаем только необходимые файлы без сессий
+require_once ROOT_PATH . '/config/constants.php';
+require_once ROOT_PATH . '/config/database.php';
 require_once ROOT_PATH . '/modules/data_collection/DataCollector.php';
 
 if (php_sapi_name() !== 'cli') {
